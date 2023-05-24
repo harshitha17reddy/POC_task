@@ -16,8 +16,8 @@ public class DocumentService {
         return documentRepository.fetchDocumentFromDB(documentId, documentType, userId, region);
     }
 
-	public void uploadDocument(byte[] encodedDocument, String documentType, String uploadedBy, String region) {
-		// TODO Auto-generated method stub
+	public Document uploadDocument(byte[] encodedDocument, String documentType, String uploadedBy, String region) {
+		return documentRepository.save(encodedDocument, documentType, uploadedBy, region);
 		
 	}
 }

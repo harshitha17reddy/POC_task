@@ -6,6 +6,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 import java.time.LocalDateTime;
+import java.util.Arrays;
 
 @Entity
 @Table(name = "DOC")
@@ -23,6 +24,15 @@ public class Document {
     private LocalDateTime created;
 
     private String region;
+    byte[] bytearray;
+
+	public byte[] getBytearray() {
+		return bytearray;
+	}
+
+	public void setBytearray(byte[] bytearray) {
+		this.bytearray = bytearray;
+	}
 
 	public Long getDocId() {
 		return docId;
@@ -75,15 +85,15 @@ public class Document {
 	@Override
 	public String toString() {
 		return "Document [docId=" + docId + ", docType=" + docType + ", encDoc=" + encDoc + ", uploadedBy=" + uploadedBy
-				+ ", created=" + created + ", region=" + region + "]";
+				+ ", created=" + created + ", region=" + region + ", bytearray=" + Arrays.toString(bytearray) + "]";
 	}
 
 	public Document() {
 		super();
 	}
 
-	public Document(Long docId, String docType, String encDoc, String uploadedBy, LocalDateTime created,
-			String region) {
+	public Document(Long docId, String docType, String encDoc, String uploadedBy, LocalDateTime created, String region,
+			byte[] bytearray) {
 		super();
 		this.docId = docId;
 		this.docType = docType;
@@ -91,7 +101,10 @@ public class Document {
 		this.uploadedBy = uploadedBy;
 		this.created = created;
 		this.region = region;
+		this.bytearray = bytearray;
 	}
+
+	
 
    
 }
